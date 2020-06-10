@@ -1,4 +1,4 @@
-type ParsedValue = {
+export type ParsedValue = {
 	type: 'plain' | 'single' | 'double';
 	value: string;
 };
