@@ -4,7 +4,7 @@ export type ParsedValue = {
 };
 
 export function splitSpacesExcludeQuotesDetailed(string: string): ParsedValue[] {
-	const groupsRegex = /[^\s"']+|"(?!")([^"]*)"|'(?!')([^']*)'/g;
+	const groupsRegex = /[^\s"']+|"(?!")([^"]*)"|'(?!')([^']*)'|(?:"|')+/g;
 	
 	const matches: ParsedValue[] = [];
 	

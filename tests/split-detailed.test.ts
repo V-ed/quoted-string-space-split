@@ -149,6 +149,46 @@ describe('splitSpacesExcludeQuotesDetailed function', () => {
 	});
 	
 	describe('Advanced inner quotes valid strings', () => {
+		it('should return with one raw single quote in double-quoted', () => {
+			const content = '\'';
+			
+			const result = splitSpacesExcludeQuotesDetailed(content);
+			
+			const expected = [{type: 'plain', value: '\''}];
+			
+			expect(result).toEqual(expected);
+		});
+		
+		it('should return with one raw double quote in single-quoted', () => {
+			const content = '"';
+			
+			const result = splitSpacesExcludeQuotesDetailed(content);
+			
+			const expected = [{type: 'plain', value: '"'}];
+			
+			expect(result).toEqual(expected);
+		});
+		
+		it('should return with two raw single quote in double-quoted', () => {
+			const content = '\'\'';
+			
+			const result = splitSpacesExcludeQuotesDetailed(content);
+			
+			const expected = [{type: 'plain', value: '\'\''}];
+			
+			expect(result).toEqual(expected);
+		});
+		
+		it('should return with two raw double quote in single-quoted', () => {
+			const content = '""';
+			
+			const result = splitSpacesExcludeQuotesDetailed(content);
+			
+			const expected = [{type: 'plain', value: '""'}];
+			
+			expect(result).toEqual(expected);
+		});
+		
 		it('should return with one single quote in double-quoted', () => {
 			const content = '"test1 \' test2"';
 			
