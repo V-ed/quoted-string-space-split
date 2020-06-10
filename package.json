@@ -1,0 +1,53 @@
+{
+  "name": "quoted-string-space-split",
+  "version": "0.0.0",
+  "description": "npm package that allows to split a string by spaces, but bypassing quoted content",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "node src/index.ts",
+    "build": "tsc",
+    "format": "eslint --fix \"src/**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "jest --detectOpenHandles --silent",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V-ed/quoted-string-space-split.git"
+  },
+  "keywords": [
+    "string",
+    "split",
+    "quote",
+    "single quote",
+    "double quote"
+  ],
+  "author": {
+    "name": "Guillaume Marcoux",
+    "url": "https://github.com/V-ed"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/V-ed/quoted-string-space-split/issues"
+  },
+  "homepage": "https://github.com/V-ed/quoted-string-space-split#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.13",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "eslint": "^7.2.0",
+    "eslint-plugin-jest": "^23.13.2",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
+  }
+}

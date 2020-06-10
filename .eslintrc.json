@@ -1,0 +1,50 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module",
+		"ecmaFeatures": {
+		"modules": true
+		}
+	},
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"env": {
+		"es6": true,
+		"node": true,
+		"jest": true
+	},
+	"rules": {
+		"no-trailing-spaces": ["error", { "skipBlankLines": true }],
+		"semi": ["error", "always"],
+		"array-bracket-newline": ["error", { "multiline": true, "minItems": 3 }],
+		"indent": ["error", "tab", { "VariableDeclarator": { "var": 2, "let": 2, "const": 3 } }],
+		"implicit-arrow-linebreak": ["error", "beside"],
+		"no-whitespace-before-property": "error",
+		"no-multi-spaces": "error",
+		"no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+		"camelcase": "error",
+		"no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+		"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+		"no-confusing-arrow": "error",
+		"padded-blocks": ["error", "never", { "allowSingleLineBlocks": true }],
+		"no-magic-numbers": ["warn", { "ignoreArrayIndexes": true }],
+		"eol-last": ["error", "always"],
+		"no-lonely-if": "error",
+		"no-underscore-dangle": "error",
+		"quotes": ["error", "single", { "allowTemplateLiterals": true }],
+		"semi-style": ["error", "last"],
+		"padding-line-between-statements": ["error",
+			{ "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+			{ "blankLine": "any",    "prev": ["const", "let", "var"], "next": ["const", "let", "var"]},
+			{ "blankLine": "always", "prev": "directive", "next": "*" },
+			{ "blankLine": "any",    "prev": "directive", "next": "directive" }
+		]
+	}
+}

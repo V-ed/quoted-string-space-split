@@ -1,0 +1,69 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.event.head_commit.message, '[CD] Release v') }}
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1.4.2
+      with:
+        node-version: '12.x'
+        
+    - name: Install
+      run: npm ci
+        
+    - name: Lint
+      run: npm run lint
+      
+  build-and-test:
+    runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.event.head_commit.message, '[CD] Release v') }}
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1.4.2
+      with:
+        node-version: '12.x'
+        
+    - name: Install
+      run: npm ci
+        
+    - name: Build
+      run: npm run build
+        
+    - name: Test
+      run: npm test
+      
+  publish:
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.event.head_commit.message, '[CD] Release v') }}
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1.4.2
+      with:
+        node-version: '12.x'
+        registry-url: https://npm.pkg.github.com/
+        scope: '@V-ed'
+        
+    - name: Install
+      run: npm ci
+        
+    - name: Publish to npm
+      id: publish
+      uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_AUTH_TOKEN }}
+        
+    - if: steps.publish.type != 'none'
+      run: |
+        echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+        
