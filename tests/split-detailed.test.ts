@@ -290,6 +290,36 @@ describe('splitSpacesExcludeQuotesDetailed function', () => {
 		});
 	});
 	
+	describe('Mixed quotes valid strings', () => {
+		it('should return double then single', () => {
+			const content = 'plain "test double" \'test single\'';
+			
+			const result = splitSpacesExcludeQuotesDetailed(content);
+			
+			const expected = [
+				{type: 'plain', value: 'plain'},
+				{type: 'double', value: 'test double'},
+				{type: 'single', value: 'test single'}
+			];
+			
+			expect(result).toEqual(expected);
+		});
+		
+		it('should return single then double', () => {
+			const content = 'plain \'test single\' "test double"';
+			
+			const result = splitSpacesExcludeQuotesDetailed(content);
+			
+			const expected = [
+				{type: 'plain', value: 'plain'},
+				{type: 'single', value: 'test single'},
+				{type: 'double', value: 'test double'}
+			];
+			
+			expect(result).toEqual(expected);
+		});
+	});
+	
 	// describe('Invalid strings', () => {
 	// 	it('should return correct command', () => {
 	// 		expect(testCommander.command).toBe('mycommand');

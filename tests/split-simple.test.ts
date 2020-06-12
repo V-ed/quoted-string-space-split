@@ -265,6 +265,32 @@ describe('splitSpacesExcludeQuotes function', () => {
 		});
 	});
 	
+	describe('Mixed quotes valid strings', () => {
+		it('should return double then single', () => {
+			const content = 'plain "test double" \'test single\'';
+			
+			const result = splitSpacesExcludeQuotes(content);
+			
+			const expected = [
+				'plain', 'test double', 'test single'
+			];
+			
+			expect(result).toEqual(expected);
+		});
+		
+		it('should return single then double', () => {
+			const content = 'plain \'test single\' "test double"';
+			
+			const result = splitSpacesExcludeQuotes(content);
+			
+			const expected = [
+				'plain', 'test single', 'test double'
+			];
+			
+			expect(result).toEqual(expected);
+		});
+	});
+	
 	// describe('Invalid strings', () => {
 	// 	it('should return correct command', () => {
 	// 		expect(testCommander.command).toBe('mycommand');
