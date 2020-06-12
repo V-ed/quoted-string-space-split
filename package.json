@@ -9,6 +9,8 @@
     "build": "tsc",
     "format": "eslint --fix \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\"",
+    "format-tests": "eslint --fix \"tests/**/*.ts\"",
+    "lint-tests": "eslint \"tests/**/*.ts\"",
     "test": "jest --detectOpenHandles --silent",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
