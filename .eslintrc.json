@@ -33,7 +33,6 @@
 		"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
 		"no-confusing-arrow": "error",
 		"padded-blocks": ["error", "never", { "allowSingleLineBlocks": true }],
-		"no-magic-numbers": ["warn", { "ignoreArrayIndexes": true }],
 		"eol-last": ["error", "always"],
 		"no-lonely-if": "error",
 		"no-underscore-dangle": "error",
@@ -46,6 +45,7 @@
 			{ "blankLine": "any",    "prev": "directive", "next": "directive" }
 		],
 		"no-unused-vars": "off",
-		"@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+		"@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+		"@typescript-eslint/no-magic-numbers": ["warn", { "ignoreArrayIndexes": true, "ignoreReadonlyClassProperties": true, "ignore": [1] }]
 	}
 }
