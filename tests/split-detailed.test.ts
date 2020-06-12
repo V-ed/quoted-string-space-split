@@ -319,10 +319,4 @@ describe('splitSpacesExcludeQuotesDetailed function', () => {
 			expect(result).toEqual(expected);
 		});
 	});
-	
-	// describe('Invalid strings', () => {
-	// 	it('should return correct command', () => {
-	// 		expect(testCommander.command).toBe('mycommand');
-	// 	});
-	// });
 });

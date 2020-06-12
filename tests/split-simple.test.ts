@@ -5,7 +5,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return single element', () => {
 			const content = 'test';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test'];
 			
@@ -15,7 +15,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return two element', () => {
 			const content = 'test1 test2';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1', 'test2'];
 			
@@ -25,7 +25,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return three element', () => {
 			const content = 'test1 test2 test3';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = [
 				'test1', 'test2', 'test3'
@@ -35,7 +35,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		});
 		
 		it('should return an empty array on empty string', () => {
-			const result = splitSpacesExcludeQuotes('');
+			const result: string[] = splitSpacesExcludeQuotes('');
 			
 			expect(result).toEqual([]);
 		});
@@ -45,7 +45,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return single element spaced double-quote', () => {
 			const content = '"test1 test2"';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 test2'];
 			
@@ -55,7 +55,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return single element spaced single-quote', () => {
 			const content = '\'test1 test2\'';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 test2'];
 			
@@ -65,7 +65,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return two (pre) element spaced double-quote', () => {
 			const content = 'pretest "test1 test2"';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['pretest', 'test1 test2'];
 			
@@ -75,7 +75,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return two (pre) element spaced single-quote', () => {
 			const content = 'pretest \'test1 test2\'';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['pretest', 'test1 test2'];
 			
@@ -85,7 +85,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return two (post) element spaced double-quote', () => {
 			const content = '"test1 test2" posttest';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 test2', 'posttest'];
 			
@@ -95,7 +95,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return two (post) element spaced single-quote', () => {
 			const content = '\'test1 test2\' posttest';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 test2', 'posttest'];
 			
@@ -105,7 +105,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return three element spaced double-quote', () => {
 			const content = 'pretest "test1 test2" posttest';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = [
 				'pretest', 'test1 test2', 'posttest'
@@ -117,7 +117,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return three element spaced single-quote', () => {
 			const content = 'pretest \'test1 test2\' posttest';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = [
 				'pretest', 'test1 test2', 'posttest'
@@ -131,7 +131,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with one single quote in double-quoted', () => {
 			const content = '"test1 \' test2"';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 \' test2'];
 			
@@ -141,7 +141,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with one double quote in single-quoted', () => {
 			const content = '\'test1 " test2\'';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 " test2'];
 			
@@ -151,7 +151,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with two single quote in double-quoted', () => {
 			const content = '"test1 \'\' test2"';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 \'\' test2'];
 			
@@ -161,7 +161,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with two double quote in single-quoted', () => {
 			const content = '\'test1 "" test2\'';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 "" test2'];
 			
@@ -171,7 +171,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with three single quote in double-quoted', () => {
 			const content = '"test1 \'\'\' test2"';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 \'\'\' test2'];
 			
@@ -181,7 +181,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with three double quote in single-quoted', () => {
 			const content = '\'test1 """ test2\'';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['test1 """ test2'];
 			
@@ -191,7 +191,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return three elements from two groups double-quoted', () => {
 			const content = '"test1" test2 "test3"';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = [
 				'test1', 'test2', 'test3'
@@ -203,7 +203,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return three elements from two groups single-quoted', () => {
 			const content = '\'test1\' test2 \'test3\'';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = [
 				'test1', 'test2', 'test3'
@@ -217,7 +217,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with one raw single quote', () => {
 			const content = '\'';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['\''];
 			
@@ -227,7 +227,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with one raw double quote', () => {
 			const content = '"';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['"'];
 			
@@ -237,7 +237,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with two raw single quote', () => {
 			const content = '\'\'';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['\'\''];
 			
@@ -247,7 +247,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with two raw double quote', () => {
 			const content = '""';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['""'];
 			
@@ -257,7 +257,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return with advanced raw quotes', () => {
 			const content = '\'""\'\'""""';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = ['\'""\'\'""""'];
 			
@@ -269,7 +269,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return double then single', () => {
 			const content = 'plain "test double" \'test single\'';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = [
 				'plain', 'test double', 'test single'
@@ -281,7 +281,7 @@ describe('splitSpacesExcludeQuotes function', () => {
 		it('should return single then double', () => {
 			const content = 'plain \'test single\' "test double"';
 			
-			const result = splitSpacesExcludeQuotes(content);
+			const result: string[] = splitSpacesExcludeQuotes(content);
 			
 			const expected = [
 				'plain', 'test single', 'test double'
@@ -290,10 +290,4 @@ describe('splitSpacesExcludeQuotes function', () => {
 			expect(result).toEqual(expected);
 		});
 	});
-	
-	// describe('Invalid strings', () => {
-	// 	it('should return correct command', () => {
-	// 		expect(testCommander.command).toBe('mycommand');
-	// 	});
-	// });
 });
