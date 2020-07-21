@@ -3,13 +3,10 @@ name: CI/CD
 on:
   push:
     branches: [ master, dev ]
-  pull_request:
-    branches: [ master, dev ]
 
 jobs:
   lint:
     runs-on: ubuntu-latest
-    if: ${{ !startsWith(github.event.head_commit.message, '[CD] Release v') }}
     
     steps:
     - uses: actions/checkout@v2
@@ -28,7 +25,6 @@ jobs:
       
   build-and-test:
     runs-on: ubuntu-latest
-    if: ${{ !startsWith(github.event.head_commit.message, '[CD] Release v') }}
     
     steps:
     - uses: actions/checkout@v2
@@ -41,21 +37,21 @@ jobs:
         
     - name: Build
       run: npm run build
-        
-    - name: Test
-      run: npm test
       
-  publish:
+    - name: Test, build coverage and send to Coveralls
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+      run: npm run coveralls
+      
+  publish-if-version-changed:
+    needs: ["lint", "build-and-test"]
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.event.head_commit.message, '[CD] Release v') }}
     
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v1.4.2
       with:
         node-version: '12.x'
-        registry-url: https://npm.pkg.github.com/
-        scope: '@V-ed'
         
     - name: Install
       run: npm ci
@@ -66,7 +62,19 @@ jobs:
       with:
         token: ${{ secrets.NPM_AUTH_TOKEN }}
         
-    - if: steps.publish.type != 'none'
+    - if: steps.publish.type == 'none' || steps.publish.outputs.old-version == steps.publish.outputs.version
+      name: "Version hasn't changed, no new package published!"
+      run: |
+        echo "Version hasn't changed, no new package published!"
+        
+    - if: steps.publish.type != 'none' && steps.publish.outputs.old-version != steps.publish.outputs.version
+      name: "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
       run: |
         echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
         
+    - if: steps.publish.type != 'none' && steps.publish.outputs.old-version != steps.publish.outputs.version
+      name: Tag if published successfully
+      uses: tvdias/github-tagger@v0.0.2
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        tag: "v${{ steps.publish.outputs.version }}"
