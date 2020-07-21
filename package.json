@@ -1,6 +1,6 @@
 {
   "name": "quoted-string-space-split",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "npm package that allows to split a string by spaces, but bypassing quoted content",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
