@@ -17,8 +17,8 @@ export function splitSpacesExcludeQuotesDetailed(string: string): ParsedValue[] 
 		} else if (match[1]) {
 			// Double quoted group
 			matches.push({type: 'double', value: match[1]});
-		} else if (match[0]) {
-			// No quote group present, but no undefined
+		} else {
+			// No quote group present
 			matches.push({type: 'plain', value: match[0]});
 		}
 	}
