@@ -2,6 +2,16 @@ import { ParsedValue, splitSpacesExcludeQuotesDetailed } from '../src/quoted-str
 
 describe('splitSpacesExcludeQuotesDetailed function', () => {
 	describe('Basic valid strings', () => {
+		it('should return empty array', () => {
+			const content = '';
+			
+			const result = splitSpacesExcludeQuotesDetailed(content);
+			
+			const expected: ParsedValue[] = [];
+			
+			expect(result).toEqual(expected);
+		});
+		
 		it('should return single element', () => {
 			const content = 'test';
 			

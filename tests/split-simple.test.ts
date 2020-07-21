@@ -2,6 +2,16 @@ import { splitSpacesExcludeQuotes } from '../src/quoted-string-space-split';
 
 describe('splitSpacesExcludeQuotes function', () => {
 	describe('Basic valid strings', () => {
+		it('should return empty array', () => {
+			const content = '';
+			
+			const result: string[] = splitSpacesExcludeQuotes(content);
+			
+			const expected: unknown[] = [];
+			
+			expect(result).toEqual(expected);
+		});
+		
 		it('should return single element', () => {
 			const content = 'test';
 			
