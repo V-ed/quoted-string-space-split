@@ -4,7 +4,7 @@
 		"ecmaVersion": 6,
 		"sourceType": "module",
 		"ecmaFeatures": {
-		"modules": true
+			"modules": true
 		}
 	},
 	"plugins": [
@@ -28,7 +28,7 @@
 		"implicit-arrow-linebreak": ["error", "beside"],
 		"no-whitespace-before-property": "error",
 		"no-multi-spaces": "error",
-		"no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+		"no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
 		"camelcase": "error",
 		"brace-style": ["error", "1tbs", { "allowSingleLine": true }],
 		"no-confusing-arrow": "error",
@@ -46,6 +46,7 @@
 		],
 		"no-unused-vars": "off",
 		"@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-		"@typescript-eslint/no-magic-numbers": ["warn", { "ignoreArrayIndexes": true, "ignoreReadonlyClassProperties": true, "ignore": [1] }]
+		"@typescript-eslint/no-magic-numbers": ["warn", { "ignoreArrayIndexes": true, "ignoreReadonlyClassProperties": true, "ignore": [1] }],
+		"@typescript-eslint/no-non-null-assertion": "off"
 	}
 }
