@@ -12,6 +12,7 @@
     "format-tests": "eslint --fix \"tests/**/*.ts\"",
     "lint-tests": "eslint \"tests/**/*.ts\"",
     "test": "jest --detectOpenHandles --silent",
+    "coverage": "jest --detectOpenHandles --silent --coverage",
     "coveralls": "jest --detectOpenHandles --silent --coverage && cat ./coverage/lcov.info | coveralls",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
