@@ -2,6 +2,7 @@
 	"extends": [
 		"config:base"
 	],
+	"commitMessagePrefix": "[Renovate] ",
 	"automergeType": "branch",
 	"packageRules": [
 		{
