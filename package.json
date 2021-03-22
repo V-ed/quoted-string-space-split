@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/V-ed/quoted-string-space-split#readme",
   "devDependencies": {
-    "@types/jest": "26.0.20",
+    "@types/jest": "26.0.21",
     "@types/node": "14.14.25",
     "@typescript-eslint/eslint-plugin": "4.8.2",
     "@typescript-eslint/parser": "4.8.2",
