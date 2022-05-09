@@ -1,6 +1,6 @@
 {
   "name": "quoted-string-space-split",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "npm package that allows to split a string by spaces, but bypassing quoted content",
   "module": "dist/esm/index.js",
   "main": "dist/commonjs/index.js",
@@ -49,10 +49,14 @@
   "homepage": "https://github.com/V-ed/quoted-string-space-split#readme",
   "prettier": "@v-ed/prettier-config",
   "eslintConfig": {
-    "extends": ["@v-ed/eslint-config"],
+    "extends": [
+      "@v-ed/eslint-config"
+    ],
     "overrides": [
       {
-        "files": ["**/tests/**/*.ts"],
+        "files": [
+          "**/tests/**/*.ts"
+        ],
         "rules": {
           "quotes": "off"
         }
