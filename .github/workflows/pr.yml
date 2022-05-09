@@ -1,44 +1,44 @@
-name: PR Checks
-
+name: PR
 on:
   pull_request:
     branches-ignore:
-      - 'renovate/**'
+      - 'release-please**'
+
+env:
+  NODE_VERSION: '16'
+  PNPM_VERSION: 7
 
 jobs:
-  lint:
+  coverage:
+    name: Coverage
     runs-on: ubuntu-latest
-    
+
+    if: contains(fromJson('["ved-bot", "renovate[bot]"]'), github.actor) == false
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2.5.1
-      with:
-        node-version: '12.x'
-        
-    - name: Install
-      run: npm ci
-        
-    - name: Lint
-      run: npm run lint
-        
-    - name: Lint Tests
-      run: npm run lint-tests
-      
-  build-and-test:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2.5.1
-      with:
-        node-version: '12.x'
-        
-    - name: Install
-      run: npm ci
-        
-    - name: Build
-      run: npm run build
-        
-    - name: Test
-      run: npm test
-      
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Retrieve pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.local/share/pnpm/store
+          key: install-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            install-${{ env.NODE_VERSION }}-${{ runner.os }}-
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          run_install: true
+
+      - name: Test and Coverage (PR)
+        uses: anuraag016/Jest-Coverage-Diff@master
+        with:
+          accessToken: '${{ secrets.GH_BOT_TOKEN }}'
+          runCommand: "pnpm run test --coverage --collectCoverage=true --coverageReporters='json-summary' --coverageDirectory='./'"
+          # delta: 0.5 # Delta of % changed that would make this job fail
+          afterSwitchCommand: 'pnpm i'

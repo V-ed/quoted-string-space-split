@@ -1,23 +1,64 @@
 {
 	"[json]": {
 		"editor.defaultFormatter": "vscode.json-language-features",
-		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.fixAll": true
-		},
+		}
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features",
+		"editor.codeActionsOnSave": {
+			"source.fixAll": true
+		}
+	},
+	"[yaml]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
 	},
 	"[typescript]": {
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.organizeImports": true,
 			"source.fixAll.eslint": true
-		},
+		}
 	},
 	"[javascript]": {
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.fixAll.eslint": true
 		}
-	}
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true
+		}
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[scss]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[graphql]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
+	},
+	"[prisma]": {
+		"editor.formatOnSave": true
+	},
+	"git.pullTags": false,
+	"json.schemas": [
+		{
+			"fileMatch": ["renovate.json"],
+			"url": "https://docs.renovatebot.com/renovate-schema.json"
+		}
+	],
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"vitest.enable": true
 }

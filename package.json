@@ -2,23 +2,27 @@
   "name": "quoted-string-space-split",
   "version": "1.0.0",
   "description": "npm package that allows to split a string by spaces, but bypassing quoted content",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "module": "dist/esm/index.js",
+  "main": "dist/commonjs/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/commonjs/index.js"
+    }
+  },
   "scripts": {
-    "start": "node src/index.ts",
-    "build": "tsc",
-    "format": "eslint --fix \"src/**/*.ts\"",
-    "lint": "eslint \"src/**/*.ts\"",
-    "format-tests": "eslint --fix \"tests/**/*.ts\"",
-    "lint-tests": "eslint \"tests/**/*.ts\"",
-    "test": "jest --detectOpenHandles --silent",
-    "coverage": "jest --detectOpenHandles --silent --coverage",
-    "coveralls": "jest --detectOpenHandles --silent --coverage && cat ./coverage/lcov.info | coveralls",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push"
+    "build": "npm-run-all -p build:*",
+    "build:esm": "tsc",
+    "build:commonjs": "tsc -p tsconfig.commonjs.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "lint": "npm-run-all lint:*",
+    "lint:src": "eslint \"src/**/*.ts\"",
+    "lint:tests": "eslint \"tests/**/*.ts\"",
+    "format": "npm-run-all format:*",
+    "format:src": "eslint --fix \"src/**/*.ts\"",
+    "format:tests": "eslint --fix \"tests/**/*.ts\"",
+    "test": "vitest run --config tests/vitest.config.ts"
   },
   "files": [
     "dist/**/*"
@@ -43,16 +47,29 @@
     "url": "https://github.com/V-ed/quoted-string-space-split/issues"
   },
   "homepage": "https://github.com/V-ed/quoted-string-space-split#readme",
+  "prettier": "@v-ed/prettier-config",
+  "eslintConfig": {
+    "extends": ["@v-ed/eslint-config"],
+    "overrides": [
+      {
+        "files": ["**/tests/**/*.ts"],
+        "rules": {
+          "quotes": "off"
+        }
+      }
+    ]
+  },
   "devDependencies": {
-    "@types/jest": "27.4.1",
     "@types/node": "16.11.33",
-    "@typescript-eslint/eslint-plugin": "4.33.0",
-    "@typescript-eslint/parser": "4.33.0",
-    "coveralls": "3.1.1",
-    "eslint": "7.32.0",
-    "eslint-plugin-jest": "26.1.3",
-    "jest": "27.5.1",
-    "ts-jest": "27.1.4",
-    "typescript": "4.6.2"
+    "@v-ed/eslint-config": "0.1.1",
+    "@v-ed/prettier-config": "0.1.1",
+    "@v-ed/tsconfig": "0.2.0",
+    "c8": "7.11.2",
+    "eslint": "8.15.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.6.2",
+    "typescript": "4.6.4",
+    "vite-tsconfig-paths": "3.4.1",
+    "vitest": "0.12.1"
   }
 }

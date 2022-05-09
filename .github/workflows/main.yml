@@ -1,80 +1,147 @@
-name: CI/CD
+name: CI
 
 on:
   push:
-    branches: [ master, dev ]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig.json'
+      - '.github/workflows/main.yml'
+
+env:
+  NODE_VERSION: '16'
+  PNPM_VERSION: 7
 
 jobs:
+  cache-modules:
+    name: Cache Node Modules
+    runs-on: ubuntu-latest
+
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Check for dupe action
+        id: skip_check
+        uses: fkirc/skip-duplicate-actions@v3
+
+      - name: Cache pnpm modules
+        id: cache-modules
+        if: steps.skip_check.outputs.should_skip != 'true'
+        uses: actions/cache@v3
+        with:
+          path: ~/.local/share/pnpm/store
+          key: install-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Install packages
+        if: steps.skip_check.outputs.should_skip != 'true' && steps.cache-modules.outputs.cache-hit != 'true'
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --ignore-scripts]
+
   lint:
+    name: Lint
     runs-on: ubuntu-latest
-    
+    needs: [cache-modules]
+
+    if: needs.cache-modules.outputs.should_skip != 'true' && contains(fromJson('["ved-bot", "renovate[bot]"]'), github.actor) == false
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2.5.1
-      with:
-        node-version: '12.x'
-        
-    - name: Install
-      run: npm ci
-        
-    - name: Lint
-      run: npm run lint
-        
-    - name: Lint Tests
-      run: npm run lint-tests
-      
-  build-and-test:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Retrieve pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.local/share/pnpm/store
+          key: install-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            install-${{ env.NODE_VERSION }}-${{ runner.os }}-
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          run_install: true
+
+      - name: Lint Source
+        run: pnpm run lint:src
+
+      - name: Lint Tests
+        run: pnpm run lint:tests
+
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    
+    needs: [cache-modules]
+
+    if: needs.cache-modules.outputs.should_skip != 'true'
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2.5.1
-      with:
-        node-version: '12.x'
-        
-    - name: Install
-      run: npm ci
-        
-    - name: Build
-      run: npm run build
-      
-    - name: Test, build coverage and send to Coveralls
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-      run: npm run coveralls
-      
-  publish-if-version-changed:
-    needs: ["lint", "build-and-test"]
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Retrieve pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.local/share/pnpm/store
+          key: install-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            install-${{ env.NODE_VERSION }}-${{ runner.os }}-
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          run_install: true
+
+      - name: Build
+        run: pnpm run build
+
+  test:
+    name: Test and Coverage
     runs-on: ubuntu-latest
-    
+    needs: [cache-modules]
+
+    if: needs.cache-modules.outputs.should_skip != 'true' && contains(fromJson('["ved-bot"]'), github.actor) == false
+
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2.5.1
-      with:
-        node-version: '12.x'
-        
-    - name: Install
-      run: npm ci
-        
-    - name: Publish to npm
-      id: publish
-      uses: JS-DevTools/npm-publish@v1
-      with:
-        token: ${{ secrets.NPM_AUTH_TOKEN }}
-        
-    - if: steps.publish.type == 'none' || steps.publish.outputs.old-version == steps.publish.outputs.version
-      name: "Version hasn't changed, no new package published!"
-      run: |
-        echo "Version hasn't changed, no new package published!"
-        
-    - if: steps.publish.type != 'none' && steps.publish.outputs.old-version != steps.publish.outputs.version
-      name: "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
-      run: |
-        echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
-        
-    - if: steps.publish.type != 'none' && steps.publish.outputs.old-version != steps.publish.outputs.version
-      name: Tag if published successfully
-      uses: tvdias/github-tagger@v0.0.2
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        tag: "v${{ steps.publish.outputs.version }}"
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Retrieve pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.local/share/pnpm/store
+          key: install-${{ env.NODE_VERSION }}-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            install-${{ env.NODE_VERSION }}-${{ runner.os }}-
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          run_install: true
+
+      - name: Test
+        run: pnpm run test --coverage
+
+      - name: Coveralls
+        run: cat ./coverage/lcov.info | pnpx coveralls
+        env:
+          COVERALLS_REPO_TOKEN: '${{ secrets.COVERALLS_REPO_TOKEN }}'

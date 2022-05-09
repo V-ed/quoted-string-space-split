@@ -20,24 +20,24 @@ export type ParsedValue = {
  */
 export function splitSpacesExcludeQuotesDetailed(string: string): ParsedValue[] {
 	const groupsRegex = /[^\s"']+|(?:"|'){2,}|"(?!")([^"]*)"|'(?!')([^']*)'|"|'/g;
-	
+
 	const matches: ParsedValue[] = [];
-	
+
 	let match;
-	
+
 	while ((match = groupsRegex.exec(string))) {
 		if (match[2]) {
 			// Single quoted group
-			matches.push({type: 'single', value: match[2]});
+			matches.push({ type: 'single', value: match[2] });
 		} else if (match[1]) {
 			// Double quoted group
-			matches.push({type: 'double', value: match[1]});
+			matches.push({ type: 'double', value: match[1] });
 		} else {
 			// No quote group present
-			matches.push({type: 'plain', value: match[0]});
+			matches.push({ type: 'plain', value: match[0]! });
 		}
 	}
-	
+
 	return matches;
 }
 
@@ -47,7 +47,7 @@ export function splitSpacesExcludeQuotesDetailed(string: string): ParsedValue[] 
  * @see splitSpacesExcludeQuotesDetailed
  */
 export function splitSpacesExcludeQuotes(string: string): string[] {
-	return splitSpacesExcludeQuotesDetailed(string).map(details => details.value);
+	return splitSpacesExcludeQuotesDetailed(string).map((details) => details.value);
 }
 
 export default splitSpacesExcludeQuotes;
