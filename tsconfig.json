@@ -22,7 +22,7 @@
       "./node_modules/@types"
     ],
     
-    "outDir": "./dist/esm",
+    "outDir": "./dist",
     
     "importHelpers": false,
     "resolveJsonModule": false,
