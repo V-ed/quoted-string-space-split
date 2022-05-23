@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@types/node': 16.11.33
+  '@types/node': 16.11.36
   '@v-ed/eslint-config': 0.1.1
   '@v-ed/prettier-config': 0.1.1
   '@v-ed/tsconfig': 0.2.0
@@ -16,7 +16,7 @@ specifiers:
   vitest: 0.12.3
 
 devDependencies:
-  '@types/node': 16.11.33
+  '@types/node': 16.11.36
   '@v-ed/eslint-config': 0.1.1_hcfsmds2fshutdssjqluwm76uu
   '@v-ed/prettier-config': 0.1.1
   '@v-ed/tsconfig': 0.2.0
@@ -149,8 +149,8 @@ packages:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
     dev: true
 
-  /@types/node/16.11.33:
-    resolution: {integrity: sha512-0PJ0vg+JyU0MIan58IOIFRtSvsb7Ri+7Wltx2qAg94eMOrpg4+uuP3aUHCpxXc1i0jCXiC+zIamSZh3l9AbcQA==}
+  /@types/node/16.11.36:
+    resolution: {integrity: sha512-FR5QJe+TaoZ2GsMHkjuwoNabr+UrJNRr2HNOo+r/7vhcuntM6Ee/pRPOnRhhL2XE9OOvX9VLEq+BcXl3VjNoWA==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.19.0_tal4xlmvnofklupd3hwjtzfb4q:
