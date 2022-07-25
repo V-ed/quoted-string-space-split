@@ -5,7 +5,7 @@ specifiers:
   '@v-ed/eslint-config': 0.1.3
   '@v-ed/prettier-config': 0.1.2
   '@v-ed/tsconfig': 0.2.0
-  c8: 7.11.3
+  c8: 7.12.0
   esbuild: 0.14.49
   eslint: 8.17.0
   npm-dts: 1.3.12
@@ -20,7 +20,7 @@ devDependencies:
   '@v-ed/eslint-config': 0.1.3_pm7osnb22e4oktq33hptgspr5i
   '@v-ed/prettier-config': 0.1.2
   '@v-ed/tsconfig': 0.2.0
-  c8: 7.11.3
+  c8: 7.12.0
   esbuild: 0.14.49
   eslint: 8.17.0
   npm-dts: 1.3.12
@@ -28,7 +28,7 @@ devDependencies:
   prettier: 2.6.2
   typescript: 4.6.4
   vite-tsconfig-paths: 3.5.0
-  vitest: 0.12.3_c8@7.11.3
+  vitest: 0.12.3_c8@7.12.0
 
 packages:
 
@@ -429,8 +429,8 @@ packages:
       fill-range: 7.0.1
     dev: true
 
-  /c8/7.11.3:
-    resolution: {integrity: sha512-6YBmsaNmqRm9OS3ZbIiL2EZgi1+Xc4O24jL3vMYGE6idixYuGdy76rIfIdltSKDj9DpLNrcXSonUTR1miBD0wA==}
+  /c8/7.12.0:
+    resolution: {integrity: sha512-CtgQrHOkyxr5koX1wEUmN/5cfDa2ckbHRA4Gy5LAL0zaCFtVWJS5++n+w4/sr2GWGerBxgTjpKeDclk/Qk6W/A==}
     engines: {node: '>=10.12.0'}
     hasBin: true
     dependencies:
@@ -2359,7 +2359,7 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.12.3_c8@7.11.3:
+  /vitest/0.12.3_c8@7.12.0:
     resolution: {integrity: sha512-Dc4uJAcnUampdJ6+C8IasrmL+Px+oDhS9gxeHlL9uwUzoM0ae2WydAK9UF2THxHszfZogLGT37atQwOkj1Lqvg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -2380,7 +2380,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.1
       '@types/chai-subset': 1.3.3
-      c8: 7.11.3
+      c8: 7.12.0
       chai: 4.3.6
       local-pkg: 0.4.1
       tinypool: 0.1.3
