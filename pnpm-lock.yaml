@@ -12,7 +12,7 @@ specifiers:
   npm-run-all: 4.1.5
   prettier: 2.8.3
   typescript: 4.9.4
-  vite-tsconfig-paths: 4.0.3
+  vite-tsconfig-paths: 4.0.5
   vitest: 0.12.3
 
 devDependencies:
@@ -27,7 +27,7 @@ devDependencies:
   npm-run-all: 4.1.5
   prettier: 2.8.3
   typescript: 4.9.4
-  vite-tsconfig-paths: 4.0.3_typescript@4.9.4
+  vite-tsconfig-paths: 4.0.5_typescript@4.9.4
   vitest: 0.12.3_c8@7.12.0
 
 packages:
@@ -2528,10 +2528,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-tsconfig-paths/4.0.3_typescript@4.9.4:
-    resolution: {integrity: sha512-gRO2Q/tOkV+9kMht5tz90+IaEKvW2zCnvwJV3tp2ruPNZOTM5rF+yXorJT4ggmAMYEaJ3nyXjx5P5jY5FwiZ+A==}
-    peerDependencies:
-      vite: '>2.0.0-0'
+  /vite-tsconfig-paths/4.0.5_typescript@4.9.4:
+    resolution: {integrity: sha512-/L/eHwySFYjwxoYt1WRJniuK/jPv+WGwgRGBYx3leciR5wBeqntQpUE6Js6+TJemChc+ter7fDBKieyEWDx4yQ==}
     dependencies:
       debug: 4.3.4
       globrex: 0.1.2
