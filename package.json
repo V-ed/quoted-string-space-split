@@ -2,17 +2,29 @@
   "name": "quoted-string-space-split",
   "version": "1.1.1",
   "description": "npm package that allows to split a string by spaces, but bypassing quoted content",
-  "module": "dist/index.esm.js",
+  "module": "dist/index.mjs",
   "main": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.esm.js",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     }
   },
+  "tsup": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "sourcemap": true,
+    "dts": true,
+    "clean": true,
+    "format": [
+      "esm",
+      "cjs"
+    ]
+  },
   "scripts": {
-    "build": "node build.js",
+    "build": "tsup",
     "lint": "npm-run-all lint:*",
     "lint:src": "eslint \"src/**/*.ts\"",
     "lint:tests": "eslint \"tests/**/*.ts\"",
@@ -67,11 +79,10 @@
     "@v-ed/tsconfig": "0.2.0",
     "@vitest/coverage-c8": "0.30.1",
     "c8": "7.13.0",
-    "esbuild": "0.17.16",
     "eslint": "8.36.0",
-    "npm-dts": "1.3.12",
     "npm-run-all": "4.1.5",
     "prettier": "2.8.7",
+    "tsup": "6.7.0",
     "typescript": "4.9.5",
     "vite-tsconfig-paths": "4.0.7",
     "vitest": "0.30.1"
