@@ -28,13 +28,16 @@ jobs:
         continue-on-error: true
 
       - uses: actions/checkout@v3
+        if: steps.skip_check.outputs.should_skip != 'true'
 
       - name: Install pnpm
+        if: steps.skip_check.outputs.should_skip != 'true'
         uses: pnpm/action-setup@v2
         with:
           version: ${{ env.PNPM_VERSION }}
 
       - uses: actions/setup-node@v3
+        if: steps.skip_check.outputs.should_skip != 'true'
         id: setup-node
         with:
           cache: 'pnpm'
