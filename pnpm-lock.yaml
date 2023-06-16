@@ -12,8 +12,8 @@ devDependencies:
     specifier: 0.1.6
     version: 0.1.6(eslint@8.42.0)(typescript@5.1.3)
   '@v-ed/prettier-config':
-    specifier: 0.1.2
-    version: 0.1.2
+    specifier: 0.2.1
+    version: 0.2.1(prettier@2.8.8)(svelte@3.59.1)
   '@v-ed/tsconfig':
     specifier: 0.3.0
     version: 0.3.0(typescript@5.1.3)
@@ -541,9 +541,17 @@ packages:
       - supports-color
     dev: true
 
-  /@v-ed/prettier-config@0.1.2:
-    resolution: {integrity: sha512-X0DBqlnEiFzPwNaPJ2emNDDUi7r+tJm0jbj/fGfNf5roQ7DNicJ3V9DbAx/lqB/8m37mhWBksMhSqGqubjWlgQ==}
+  /@v-ed/prettier-config@0.2.1(prettier@2.8.8)(svelte@3.59.1):
+    resolution: {integrity: sha512-yQe6bMTxLmmWlMpJt+iXVNLCplva7PeH4dYAtaGP50Z6xx7xE6txIOCItOnJZBen5EHnSLWFN0M+h8twzufHZA==}
     engines: {node: '>=14'}
+    peerDependencies:
+      prettier: ^2
+    dependencies:
+      prettier: 2.8.8
+    optionalDependencies:
+      prettier-plugin-svelte: 2.10.1(prettier@2.8.8)(svelte@3.59.1)
+    transitivePeerDependencies:
+      - svelte
     dev: true
 
   /@v-ed/tsconfig@0.3.0(typescript@5.1.3):
@@ -2106,6 +2114,18 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
+  /prettier-plugin-svelte@2.10.1(prettier@2.8.8)(svelte@3.59.1):
+    resolution: {integrity: sha512-Wlq7Z5v2ueCubWo0TZzKc9XHcm7TDxqcuzRuGd0gcENfzfT4JZ9yDlCbEgxWgiPmLHkBjfOtpAWkcT28MCDpUQ==}
+    requiresBuild: true
+    peerDependencies:
+      prettier: ^1.16.4 || ^2.0.0
+      svelte: ^3.2.0 || ^4.0.0-next.0
+    dependencies:
+      prettier: 2.8.8
+      svelte: 3.59.1
+    dev: true
+    optional: true
+
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
@@ -2434,6 +2454,12 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /svelte@3.59.1:
+    resolution: {integrity: sha512-pKj8fEBmqf6mq3/NfrB9SLtcJcUvjYSWyePlfCqN9gujLB25RitWK8PvFzlwim6hD/We35KbPlRteuA6rnPGcQ==}
+    engines: {node: '>= 8'}
+    dev: true
+    optional: true
 
   /test-exclude@6.0.0:
     resolution: {integrity: sha512-cAGWPIyOHU6zlmg88jwm7VRyXnMN7iV68OGAbYDk/Mh/xC/pzVPlQtY6ngoIH/5/tciuhGfvESU8GrHrcxD56w==}

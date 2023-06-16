@@ -75,7 +75,7 @@
   "devDependencies": {
     "@types/node": "16.18.3",
     "@v-ed/eslint-config": "0.1.6",
-    "@v-ed/prettier-config": "0.1.2",
+    "@v-ed/prettier-config": "0.2.1",
     "@v-ed/tsconfig": "0.3.0",
     "@vitest/coverage-c8": "0.31.1",
     "c8": "7.14.0",
