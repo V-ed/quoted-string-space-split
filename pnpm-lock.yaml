@@ -9,8 +9,8 @@ devDependencies:
     specifier: 16.18.3
     version: 16.18.3
   '@v-ed/eslint-config':
-    specifier: 0.1.4
-    version: 0.1.4(eslint@8.42.0)(typescript@5.1.3)
+    specifier: 0.1.6
+    version: 0.1.6(eslint@8.42.0)(typescript@5.1.3)
   '@v-ed/prettier-config':
     specifier: 0.1.2
     version: 0.1.2
@@ -526,8 +526,8 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@v-ed/eslint-config@0.1.4(eslint@8.42.0)(typescript@5.1.3):
-    resolution: {integrity: sha512-04sE/ii63nSXvCGQ3COcNQPXJSt3CHrWN0rjnssyTKFjfa0sp6fGjzRXQtlQVeNuXwVSYU8K23PJ4O1kz7XPPQ==}
+  /@v-ed/eslint-config@0.1.6(eslint@8.42.0)(typescript@5.1.3):
+    resolution: {integrity: sha512-+dxQf29wTBmRzoN8VnWYzUWWm2yS5eKyXhNqamBo+M36J62KcIDS1pSsKfhz8XKCWOW0Ykrp69hpIRrg7RVwtg==}
     engines: {node: '>=14'}
     peerDependencies:
       eslint: '>= 8'
