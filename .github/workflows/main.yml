@@ -10,7 +10,7 @@ on:
       - '.github/workflows/main.yml'
 
 env:
-  NODE_VERSION: '16'
+  NODE_VERSION: '18'
   PNPM_VERSION: 8
 
 jobs:
