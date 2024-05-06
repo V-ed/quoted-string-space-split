@@ -78,7 +78,7 @@
     "@v-ed/prettier-config": "0.3.0",
     "@v-ed/tsconfig": "0.3.0",
     "@vitest/coverage-v8": "1.5.2",
-    "eslint": "9.1.1",
+    "eslint": "9.2.0",
     "npm-run-all2": "6.1.2",
     "prettier": "3.2.5",
     "tsup": "8.0.2",
