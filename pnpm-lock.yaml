@@ -13,7 +13,7 @@ devDependencies:
     version: 0.1.6(eslint@9.4.0)(typescript@5.4.5)
   '@v-ed/prettier-config':
     specifier: 0.3.0
-    version: 0.3.0(prettier@3.3.0)(svelte@3.59.1)
+    version: 0.3.0(prettier@3.3.1)(svelte@3.59.1)
   '@v-ed/tsconfig':
     specifier: 0.3.0
     version: 0.3.0(typescript@5.4.5)
@@ -27,8 +27,8 @@ devDependencies:
     specifier: 6.2.0
     version: 6.2.0
   prettier:
-    specifier: 3.3.0
-    version: 3.3.0
+    specifier: 3.3.1
+    version: 3.3.1
   tsup:
     specifier: 8.0.2
     version: 8.0.2(typescript@5.4.5)
@@ -673,15 +673,15 @@ packages:
       - supports-color
     dev: true
 
-  /@v-ed/prettier-config@0.3.0(prettier@3.3.0)(svelte@3.59.1):
+  /@v-ed/prettier-config@0.3.0(prettier@3.3.1)(svelte@3.59.1):
     resolution: {integrity: sha512-VfsLHX8yGs++1uDlb74wEl3U7tzmV5BVxEaI2IE880219bcWC8tgYcyXrqaL+zkITpgB6nHHmapypvYe5JiXUA==}
     engines: {node: '>=14'}
     peerDependencies:
       prettier: ^3
     dependencies:
-      prettier: 3.3.0
+      prettier: 3.3.1
     optionalDependencies:
-      prettier-plugin-svelte: 2.10.1(prettier@3.3.0)(svelte@3.59.1)
+      prettier-plugin-svelte: 2.10.1(prettier@3.3.1)(svelte@3.59.1)
     transitivePeerDependencies:
       - svelte
     dev: true
@@ -1851,20 +1851,20 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-svelte@2.10.1(prettier@3.3.0)(svelte@3.59.1):
+  /prettier-plugin-svelte@2.10.1(prettier@3.3.1)(svelte@3.59.1):
     resolution: {integrity: sha512-Wlq7Z5v2ueCubWo0TZzKc9XHcm7TDxqcuzRuGd0gcENfzfT4JZ9yDlCbEgxWgiPmLHkBjfOtpAWkcT28MCDpUQ==}
     requiresBuild: true
     peerDependencies:
       prettier: ^1.16.4 || ^2.0.0
       svelte: ^3.2.0 || ^4.0.0-next.0
     dependencies:
-      prettier: 3.3.0
+      prettier: 3.3.1
       svelte: 3.59.1
     dev: true
     optional: true
 
-  /prettier@3.3.0:
-    resolution: {integrity: sha512-J9odKxERhCQ10OC2yb93583f6UnYutOeiV5i0zEDS7UGTdUt0u+y8erxl3lBKvwo/JHyyoEdXjwp4dke9oyZ/g==}
+  /prettier@3.3.1:
+    resolution: {integrity: sha512-7CAwy5dRsxs8PHXT3twixW9/OEll8MLE0VRPCJyl7CkS6VHGPSlsVaWTiASPTyGyYRyApxlaWTzwUxVNrhcwDg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
