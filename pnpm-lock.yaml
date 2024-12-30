@@ -15,8 +15,8 @@ devDependencies:
     specifier: 0.3.0
     version: 0.3.0(prettier@3.4.2)(svelte@3.59.1)
   '@v-ed/tsconfig':
-    specifier: 0.3.0
-    version: 0.3.0(typescript@5.5.4)
+    specifier: 0.4.0
+    version: 0.4.0(typescript@5.5.4)
   '@vitest/coverage-v8':
     specifier: 2.1.8
     version: 2.1.8(vitest@2.1.8)
@@ -979,9 +979,9 @@ packages:
       - svelte
     dev: true
 
-  /@v-ed/tsconfig@0.3.0(typescript@5.5.4):
-    resolution: {integrity: sha512-dA/dTM0CqYQyvAoRVzmgBhQeO1QfCcUjmQqcU5Oza0a30ICmfAZuMj9+MCgcevnXFKLT5+Ag21Ny1UY3G4Cr8A==}
-    engines: {node: '>=14'}
+  /@v-ed/tsconfig@0.4.0(typescript@5.5.4):
+    resolution: {integrity: sha512-+CFpiujVjBVKSeLc9viXtnzgDEGiVU3rFcFKw6JkOKs+iipMduNgesqH6Daaer4H9NrYaOAkUnYoaJ/iOfi5+g==}
+    engines: {node: '>=16'}
     peerDependencies:
       typescript: ^5
     dependencies:
