@@ -10,7 +10,7 @@ devDependencies:
     version: 16.18.3
   '@v-ed/eslint-config':
     specifier: 0.2.3
-    version: 0.2.3(@eslint/js@9.25.1)(eslint@9.26.0)(typescript-eslint@8.18.2)(typescript@5.8.3)
+    version: 0.2.3(@eslint/js@9.26.0)(eslint@9.26.0)(typescript-eslint@8.18.2)(typescript@5.8.3)
   '@v-ed/prettier-config':
     specifier: 0.3.0
     version: 0.3.0(prettier@3.5.3)(svelte@3.59.1)
@@ -24,8 +24,8 @@ devDependencies:
     specifier: 9.26.0
     version: 9.26.0
   npm-run-all2:
-    specifier: 7.0.2
-    version: 7.0.2
+    specifier: 8.0.1
+    version: 8.0.1
   prettier:
     specifier: 3.5.3
     version: 3.5.3
@@ -566,11 +566,6 @@ packages:
       - supports-color
     dev: true
 
-  /@eslint/js@9.25.1:
-    resolution: {integrity: sha512-dEIwmjntEx8u3Uvv+kr3PDeeArL8Hw07H9kyYxCjnM9pBjfEhk6uLXSchxxzgiwtRhhzVzqmUSDFBOi1TuZ7qg==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    dev: true
-
   /@eslint/js@9.26.0:
     resolution: {integrity: sha512-I9XlJawFdSMvWjDt6wksMCrgns5ggLNfFwFvnShsleWruvXM514Qxk8V246efTw+eo9JABvVz+u3q2RiAowKxQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -990,7 +985,7 @@ packages:
       eslint-visitor-keys: 4.2.0
     dev: true
 
-  /@v-ed/eslint-config@0.2.3(@eslint/js@9.25.1)(eslint@9.26.0)(typescript-eslint@8.18.2)(typescript@5.8.3):
+  /@v-ed/eslint-config@0.2.3(@eslint/js@9.26.0)(eslint@9.26.0)(typescript-eslint@8.18.2)(typescript@5.8.3):
     resolution: {integrity: sha512-mmICie5kyYat5KhohUemQXLpAsTxe9lal8dozGHsEk2Snfge88u179AZoD1GdwBNwqFfbJBqOVtsd+m8fs5dww==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -999,7 +994,7 @@ packages:
       typescript: '*'
       typescript-eslint: '>=8'
     dependencies:
-      '@eslint/js': 9.25.1
+      '@eslint/js': 9.26.0
       eslint: 9.26.0
       typescript: 5.8.3
       typescript-eslint: 8.18.2(eslint@9.26.0)(typescript@5.8.3)
@@ -2177,6 +2172,13 @@ packages:
       mime-db: 1.54.0
     dev: true
 
+  /minimatch@10.0.1:
+    resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
+    engines: {node: 20 || >=22}
+    dependencies:
+      brace-expansion: 2.0.1
+    dev: true
+
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
@@ -2231,15 +2233,15 @@ packages:
     engines: {node: ^18.17.0 || >=20.5.0}
     dev: true
 
-  /npm-run-all2@7.0.2:
-    resolution: {integrity: sha512-7tXR+r9hzRNOPNTvXegM+QzCuMjzUIIq66VDunL6j60O4RrExx32XUhlrS7UK4VcdGw5/Wxzb3kfNcFix9JKDA==}
-    engines: {node: ^18.17.0 || >=20.5.0, npm: '>= 9'}
+  /npm-run-all2@8.0.1:
+    resolution: {integrity: sha512-jkhE0AsELQeCtScrcJ/7mSIdk+ZsnWjvKk3KwE96HZ6+OFVB74XhxQtHT1W6kdUfn92fRnBb29Mz82j9bV2XEQ==}
+    engines: {node: ^20.5.0 || >=22.0.0, npm: '>= 10'}
     hasBin: true
     dependencies:
       ansi-styles: 6.2.1
       cross-spawn: 7.0.6
       memorystream: 0.3.1
-      minimatch: 9.0.5
+      minimatch: 10.0.1
       pidtree: 0.6.0
       read-package-json-fast: 4.0.0
       shell-quote: 1.8.0
