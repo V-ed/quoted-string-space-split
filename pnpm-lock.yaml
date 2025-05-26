@@ -24,8 +24,8 @@ devDependencies:
     specifier: 9.27.0
     version: 9.27.0
   npm-run-all2:
-    specifier: 8.0.2
-    version: 8.0.2
+    specifier: 8.0.4
+    version: 8.0.4
   prettier:
     specifier: 3.5.3
     version: 3.5.3
@@ -1903,8 +1903,8 @@ packages:
     engines: {node: ^18.17.0 || >=20.5.0}
     dev: true
 
-  /npm-run-all2@8.0.2:
-    resolution: {integrity: sha512-yU70kTcohhAETxUjJQxTdQbaDJWCyv+DlKHEWdOifxZ0hZUKRh26mY2mfzlPxfGbsTRbgBuEHeakB6wx0CvVaQ==}
+  /npm-run-all2@8.0.4:
+    resolution: {integrity: sha512-wdbB5My48XKp2ZfJUlhnLVihzeuA1hgBnqB2J9ahV77wLS+/YAJAlN8I+X3DIFIPZ3m5L7nplmlbhNiFDmXRDA==}
     engines: {node: ^20.5.0 || >=22.0.0, npm: '>= 10'}
     hasBin: true
     dependencies:
