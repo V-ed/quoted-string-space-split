@@ -13,7 +13,7 @@ devDependencies:
     version: 0.2.3(@eslint/js@9.29.0)(eslint@9.29.0)(typescript-eslint@8.18.2)(typescript@5.8.3)
   '@v-ed/prettier-config':
     specifier: 0.3.0
-    version: 0.3.0(prettier@3.6.0)(svelte@3.59.1)
+    version: 0.3.0(prettier@3.6.2)(svelte@3.59.1)
   '@v-ed/tsconfig':
     specifier: 0.4.0
     version: 0.4.0(typescript@5.8.3)
@@ -27,8 +27,8 @@ devDependencies:
     specifier: 8.0.4
     version: 8.0.4
   prettier:
-    specifier: 3.6.0
-    version: 3.6.0
+    specifier: 3.6.2
+    version: 3.6.2
   tsup:
     specifier: 8.5.0
     version: 8.5.0(typescript@5.8.3)
@@ -992,15 +992,15 @@ packages:
       typescript-eslint: 8.18.2(eslint@9.29.0)(typescript@5.8.3)
     dev: true
 
-  /@v-ed/prettier-config@0.3.0(prettier@3.6.0)(svelte@3.59.1):
+  /@v-ed/prettier-config@0.3.0(prettier@3.6.2)(svelte@3.59.1):
     resolution: {integrity: sha512-VfsLHX8yGs++1uDlb74wEl3U7tzmV5BVxEaI2IE880219bcWC8tgYcyXrqaL+zkITpgB6nHHmapypvYe5JiXUA==}
     engines: {node: '>=14'}
     peerDependencies:
       prettier: ^3
     dependencies:
-      prettier: 3.6.0
+      prettier: 3.6.2
     optionalDependencies:
-      prettier-plugin-svelte: 2.10.1(prettier@3.6.0)(svelte@3.59.1)
+      prettier-plugin-svelte: 2.10.1(prettier@3.6.2)(svelte@3.59.1)
     transitivePeerDependencies:
       - svelte
     dev: true
@@ -2102,20 +2102,20 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-svelte@2.10.1(prettier@3.6.0)(svelte@3.59.1):
+  /prettier-plugin-svelte@2.10.1(prettier@3.6.2)(svelte@3.59.1):
     resolution: {integrity: sha512-Wlq7Z5v2ueCubWo0TZzKc9XHcm7TDxqcuzRuGd0gcENfzfT4JZ9yDlCbEgxWgiPmLHkBjfOtpAWkcT28MCDpUQ==}
     requiresBuild: true
     peerDependencies:
       prettier: ^1.16.4 || ^2.0.0
       svelte: ^3.2.0 || ^4.0.0-next.0
     dependencies:
-      prettier: 3.6.0
+      prettier: 3.6.2
       svelte: 3.59.1
     dev: true
     optional: true
 
-  /prettier@3.6.0:
-    resolution: {integrity: sha512-ujSB9uXHJKzM/2GBuE0hBOUgC77CN3Bnpqa+g80bkv3T3A93wL/xlzDATHhnhkzifz/UE2SNOvmbTz5hSkDlHw==}
+  /prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
