@@ -68,7 +68,7 @@ jobs:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Comment on published commit
-        uses: peter-evans/commit-comment@v2
+        uses: peter-evans/commit-comment@v3
         with:
           token: '${{ secrets.GH_BOT_TOKEN }}'
           sha: '${{ steps.commit-vars.outputs.git_head_sha }}'
