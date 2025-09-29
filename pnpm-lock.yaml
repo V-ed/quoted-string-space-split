@@ -9,8 +9,8 @@ devDependencies:
     specifier: 16.18.3
     version: 16.18.3
   '@v-ed/eslint-config':
-    specifier: 0.2.3
-    version: 0.2.3(@eslint/js@9.36.0)(eslint@9.36.0)(typescript-eslint@8.18.2)(typescript@5.9.2)
+    specifier: 0.2.6
+    version: 0.2.6(@eslint/js@9.36.0)(eslint@9.36.0)(typescript-eslint@8.18.2)(typescript@5.9.2)
   '@v-ed/prettier-config':
     specifier: 0.3.1
     version: 0.3.1(prettier@3.6.2)(svelte@3.59.1)
@@ -977,14 +977,14 @@ packages:
       eslint-visitor-keys: 4.2.1
     dev: true
 
-  /@v-ed/eslint-config@0.2.3(@eslint/js@9.36.0)(eslint@9.36.0)(typescript-eslint@8.18.2)(typescript@5.9.2):
-    resolution: {integrity: sha512-mmICie5kyYat5KhohUemQXLpAsTxe9lal8dozGHsEk2Snfge88u179AZoD1GdwBNwqFfbJBqOVtsd+m8fs5dww==}
+  /@v-ed/eslint-config@0.2.6(@eslint/js@9.36.0)(eslint@9.36.0)(typescript-eslint@8.18.2)(typescript@5.9.2):
+    resolution: {integrity: sha512-gI1ahB/9dnBFWLw/qzJT0tU2Kc9qgFaGQpj52T7z9QNWVY7Xb5j4K3OoDe4zYhWMe3J5cemH3NtdnQChIbn/iw==}
     engines: {node: '>=18'}
     peerDependencies:
       '@eslint/js': '>=9'
       eslint: '>=9'
-      typescript: '*'
-      typescript-eslint: '>=8'
+      typescript: ^5 || ^6
+      typescript-eslint: ^8
     dependencies:
       '@eslint/js': 9.36.0
       eslint: 9.36.0
