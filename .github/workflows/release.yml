@@ -19,7 +19,7 @@ jobs:
       releases_created: ${{ steps.release-please.outputs.releases_created }}
 
     steps:
-      - uses: GoogleCloudPlatform/release-please-action@v3
+      - uses: GoogleCloudPlatform/release-please-action@v4
         id: release-please
         if: github.event_name != 'workflow_dispatch'
         with:
