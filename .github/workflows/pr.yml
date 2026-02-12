@@ -16,7 +16,7 @@ jobs:
     if: contains(fromJson('["ved-bot", "renovate[bot]"]'), github.actor) == false
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
