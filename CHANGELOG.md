@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/V-ed/quoted-string-space-split/compare/quoted-string-space-split-v1.1.1...quoted-string-space-split-v1.1.2) (2026-02-23)
+
+
+### Bug Fixes
+
+* move to tsup for building ([bead73d](https://github.com/V-ed/quoted-string-space-split/commit/bead73dd0024a88336e0d3129e8b03d9cc7fb66d))
+
 ### [1.1.1](https://github.com/V-ed/quoted-string-space-split/compare/quoted-string-space-split-v1.1.0...quoted-string-space-split-v1.1.1) (2022-05-10)
 
 
